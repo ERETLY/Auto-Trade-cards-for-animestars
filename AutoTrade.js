@@ -112,11 +112,11 @@ const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceiv
                 await page1.close();
                 await browser1.close();
 
-                // Запуск второго браузера для принятия обмена
+                // Запуск второго браузера для принятия обмена - так же меняем расположение
                 const browser2 = await puppeteer.launch({
                     headless: false,
                     executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-                    userDataDir: 'C:\\Users\\eretly\\AppData\\Local\\Google\\Chrome\\User Data',
+                    userDataDir: 'C:\\Users\\YourName\\AppData\\Local\\Google\\Chrome\\User Data',
                 });
                 const page2 = await browser2.newPage();
 
