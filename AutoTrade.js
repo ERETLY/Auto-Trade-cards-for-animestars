@@ -49,9 +49,9 @@ const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceiv
         await browser1.close();
         return false;
     }
-
+    // Меняем ссылку на ваш профиль - куда будут отправляьтся карты 
     try {
-        await page1.goto(`https://animestars.org/user/eretly/cards/?rank=${rank}`, { waitUntil: 'networkidle2' });
+        await page1.goto(`https://animestars.org/user/YourUsername/cards/?rank=${rank}`, { waitUntil: 'networkidle2' });
         console.log(`Переход на страницу карт для ранга ${rank} выполнен`);
 
         // Цикл обмена, пока не останется 2 или менее карт
