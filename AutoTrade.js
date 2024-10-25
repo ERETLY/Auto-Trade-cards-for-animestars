@@ -76,6 +76,23 @@ const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceiv
                 await proposeTradeButton.click();
                 console.log('Кликнули на "Предложить обмен"');
 
+                // Проверка лимита обменов
+                const limitMessageSelector = '.message-info__title';
+                try {
+                    await page1.waitForSelector(limitMessageSelector, { visible: true, timeout: 3000 });
+                    const limitReachedTitle = await page1.$eval(limitMessageSelector, el => el.textContent.trim());
+
+                    if (limitReachedTitle.includes('Внимание! Достигнут лимит')) {
+                        console.log(`Достигнут лимит обменов для файла куков ${cookieFilePathSend}. Переходим к следующему файлу куков.`);
+                        
+                        await page1.close();
+                        await browser1.close();
+                        return; // Выход из функции, чтобы переключиться на другой файл куков
+                    }
+                } catch (limitError) {
+                    console.log('Лимит обменов не достигнут. Продолжаем.');
+                }
+                
                 await page1.waitForSelector('.trade__inventory-list', { visible: true });
                 await delay(100); // Задержка 100 мс после загрузки элемента
 
