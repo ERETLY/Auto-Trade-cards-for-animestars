@@ -34,7 +34,7 @@ const getInventoryCardCount = async (page) => {
 // Функция для задержки
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Функция для отправки и принятия обмена для указанного ранга - меняем расположение на ваше (хром и юзер дата хрома)
+// Функция для отправки и принятия обмена для указанного ранга - меняем на ваше расположение хрома
 const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceive) => {
     const browser1 = await puppeteer.launch({
         headless: true,
@@ -128,7 +128,7 @@ const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceiv
                 await page1.close();
                 await browser1.close();
 
-                // Запуск второго браузера для принятия обмена - так же меняем расположение
+                // Запуск второго браузера для принятия обмена -  меняем на ваше расположение хрома
                 const browser2 = await puppeteer.launch({
                     headless: true,
                     executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
