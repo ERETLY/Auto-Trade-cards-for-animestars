@@ -37,9 +37,8 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 // Функция для отправки и принятия обмена для указанного ранга - меняем расположение на ваше (хром и юзер дата хрома)
 const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceive) => {
     const browser1 = await puppeteer.launch({
-        headless: false,
+        headless: true,
         executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-        userDataDir: 'C:\\Users\\YourName\\AppData\\Local\\Google\\Chrome\\User Data',
     });
 
     const page1 = await browser1.newPage();
@@ -114,9 +113,8 @@ const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceiv
 
                 // Запуск второго браузера для принятия обмена - так же меняем расположение
                 const browser2 = await puppeteer.launch({
-                    headless: false,
+                    headless: true,
                     executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-                    userDataDir: 'C:\\Users\\YourName\\AppData\\Local\\Google\\Chrome\\User Data',
                 });
                 const page2 = await browser2.newPage();
 
