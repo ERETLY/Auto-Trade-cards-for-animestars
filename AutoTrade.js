@@ -123,6 +123,7 @@ const handleTradeForRank = async (rank, cookieFilePathSend, cookieFilePathReceiv
                 const sendTradeButton = await page1.$('.trade__send-trade-btn');
                 await sendTradeButton.click();
                 console.log('Отправили обмен');
+                await delay(300);
 
                 // Закрываем страницу после отправки обмена
                 await page1.close();
